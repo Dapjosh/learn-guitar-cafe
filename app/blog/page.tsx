@@ -45,14 +45,15 @@ export default async function BlogIndex() {
               </h2>
 
               <time className="text-sm text-gray-500 mb-4 block">
-                {new Date(post.data.publication_date).toLocaleDateString(
-                  'en-US',
-                  {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  }
-                )}
+                {post.data.publication_date &&
+                  new Date(post.data.publication_date).toLocaleDateString(
+                    'en-US',
+                    {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    }
+                  )}
               </time>
 
               {/* Pushes the read more link to the bottom of the card */}

@@ -1,0 +1,4 @@
+:HL["/_next/static/chunks/f139f3693549a746.css","style"]
+:HL["/images/learn-guitar-cafe-logo.png","image"]
+:HL["https://images.prismic.io/learn-guitar-cafe/aZc0N8FoBIGEgkQ7_learn-guitar-cafe.png?auto=format,compress&rect=0,1,300,280&w=300&h=280","image"]
+0:{"buildId":"-cxWR2ijqOI6Qw-XfL4mo","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

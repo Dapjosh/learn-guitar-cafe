@@ -5,6 +5,16 @@ import { components } from '@/slices';
 
 type Params = Promise<{ uid: string }>;
 
+export async function generateStaticParams() {
+  const client = createClient();
+
+  const pages = await client.getAllByType('blog_post');
+
+  return pages.map((page) => {
+    return { uid: page.uid };
+  });
+}
+
 export default async function BlogPost({ params }: { params: Params }) {
   const resolvedParams = await params;
 

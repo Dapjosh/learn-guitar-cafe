@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import { createClient } from '@/prismicio';
 import { PrismicNextLink } from '@prismicio/next';
+import { FaFacebook } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
+import { FaYoutube } from 'react-icons/fa';
 
 export default async function Footer() {
   const client = createClient();
   const settings = await client.getSingle('settings').catch(() => null);
+
+  const socialMedia = settings?.data?.social_media || [];
 
   const genres = [
     'Blues',
@@ -131,92 +137,6 @@ export default async function Footer() {
               </ul>
             </div>
           ))}
-          {/* <div>
-            <h3 className="text-[22px] font-bold mb-6 text-[#0d274a]">
-              About LGC
-            </h3>
-            <ul className="space-y-3 mb-8 text-[#0d274a] list-none">
-              <li className="flex items-center before:content-['•'] before:mr-2 before:text-gray-400">
-                <Link
-                  href="/about"
-                  className="hover:text-blue-600 transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li className="flex items-center before:content-['•'] before:mr-2 before:text-gray-400">
-                <Link
-                  href="/contact"
-                  className="hover:text-blue-600 transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-            <img
-              src="/images/lgc-bottle-caps.png"
-              alt="Learn Guitar Cafe Bottle Caps"
-              className="w-36 drop-shadow-md"
-            />
-          </div> */}
-
-          {/* <div>
-            <h3 className="text-[22px] font-bold mb-6 text-[#0d274a]">
-              Genres & Styles
-            </h3>
-            <ul className="space-y-3 text-[#0d274a] list-none">
-              {genres.map((genre) => (
-                <li
-                  key={genre}
-                  className="flex items-center before:content-['•'] before:mr-2 before:text-gray-400"
-                >
-                  <Link
-                    href={`/genres/${genre.toLowerCase().replace(' ', '-')}`}
-                    className="hover:text-blue-600 transition-colors"
-                  >
-                    {genre}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div> */}
-
-          {/* <div>
-            <h3 className="text-[22px] font-bold mb-6 text-[#0d274a]">
-              Important Links
-            </h3>
-            <ul className="space-y-3 text-[#0d274a] list-none">
-              {importantLinks.map((link) => (
-                <li
-                  key={link}
-                  className="flex items-center before:content-['•'] before:mr-2 before:text-gray-400"
-                >
-                  <Link
-                    href="#"
-                    className="hover:text-blue-600 transition-colors"
-                  >
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-[22px] font-bold mb-6 text-[#0d274a]">
-              Popular Subjects
-            </h3>
-            <ul className="space-y-3 text-[#0d274a] list-none">
-              <li className="flex items-center before:content-['•'] before:mr-2 before:text-gray-400">
-                <Link
-                  href="#"
-                  className="hover:text-blue-600 transition-colors"
-                >
-                  I love Fender Guitars
-                </Link>
-              </li>
-            </ul>
-          </div>*/}
         </div>
       </div>
 
@@ -256,16 +176,25 @@ export default async function Footer() {
           </nav>
 
           <div className="flex space-x-3">
-            {socialIcons.map((icon) => (
-              <a
-                key={icon}
-                href="#"
-                className="flex items-center justify-center w-8 h-8 bg-gray-300 rounded hover:bg-white transition-colors text-[#0b1b36] font-bold text-xs"
+            {socialMedia.map((item, index) => (
+              <PrismicNextLink
+                key={index}
+                field={item?.link[0]}
+                className="flex items-center justify-center w-8 h-8 bg-gray-300 rounded hover:bg-[#FF7F00] hover:text-white transition-colors text-[#0b1b36] font-bold text-xs"
               >
-                {icon}
-              </a>
+                {item.social_media === 'Facebook' && <FaFacebook />}
+                {item.social_media === 'Twitter' && <FaTwitter />}
+                {item.social_media === 'Instagram' && <FaInstagram />}
+                {item.social_media === 'YouTube' && <FaYoutube />}
+              </PrismicNextLink>
             ))}
           </div>
+        </div>
+      </div>
+      <div className="bg-[#0b1b36] py-4 px-8">
+        <div className="mx-auto text-center text-gray-400 text-sm">
+          &copy; {new Date().getFullYear()} Learn Guitar Cafe. All rights
+          reserved.
         </div>
       </div>
     </footer>

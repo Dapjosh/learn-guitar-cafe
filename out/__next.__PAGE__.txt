@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+:HL["/images/slide7.png","image"]
+:HL["/images/learn-guitar-cafe.png","image"]
+0:{"buildId":"-cxWR2ijqOI6Qw-XfL4mo","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"flex min-h-screen flex-col items-center justify-between","children":["$","div",null,{"className":"w-full h-fit flex items-center justify-between relative","children":[["$","img",null,{"src":"/images/slide7.png","className":"w-full h-auto","alt":"Learn Guitar Cafe Banner"}],["$","div",null,{"className":"absolute flex top-20 flex-col items-left justify-left px-8","children":[["$","img",null,{"src":"/images/learn-guitar-cafe.png","alt":"Learn Guitar Cafe Logo","className":"w-48 mb-4 drop-shadow-lg"}],["$","h1",null,{"className":"text-4xl md:text-6xl font-bold font-[Fugaz_One] text-white text-center","children":"ONLINE GUITAR LESSONS"}]]}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+4:null

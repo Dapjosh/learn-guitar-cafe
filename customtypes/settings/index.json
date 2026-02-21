@@ -160,6 +160,33 @@
             }
           }
         }
+      },
+      "social_media": {
+        "type": "Group",
+        "config": {
+          "label": "Social media",
+          "repeat": true,
+          "fields": {
+            "social_media": {
+              "type": "Text",
+              "config": {
+                "label": "Social Media",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": true
+              }
+            }
+          }
+        }
       }
     }
   }

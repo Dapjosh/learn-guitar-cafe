@@ -318,6 +318,33 @@ export interface SettingsDocumentDataFooterColumn4Item {
 }
 
 /**
+ * Item in *Settings → Social media*
+ */
+export interface SettingsDocumentDataSocialMediaItem {
+  /**
+   * Social Media field in *Settings → Social media*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_media[].social_media
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  social_media: prismic.KeyTextField;
+
+  /**
+   * Link field in *Settings → Social media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_media[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -382,6 +409,19 @@ interface SettingsDocumentData {
    */
   footer_column_4: prismic.GroupField<
     Simplify<SettingsDocumentDataFooterColumn4Item>
+  >;
+
+  /**
+   * Social media field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_media[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_media: prismic.GroupField<
+    Simplify<SettingsDocumentDataSocialMediaItem>
   >;
 }
 
@@ -593,6 +633,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataFooterColumn2Item,
       SettingsDocumentDataFooterColumn3Item,
       SettingsDocumentDataFooterColumn4Item,
+      SettingsDocumentDataSocialMediaItem,
       AllDocumentTypes,
       CodeBlockSlice,
       CodeBlockSliceVariation,
