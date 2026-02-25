@@ -93,7 +93,7 @@ export default async function AllCourses() {
                 </div>
                 <PrismicNextImage
                   field={course.data.course_cover}
-                  alt={course.data.title || "Course image"}
+                  alt=""
                   fill
                   className="object-cover h-full group-hover:scale-105 transition-transform duration-500"
                 />
