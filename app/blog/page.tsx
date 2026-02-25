@@ -1,10 +1,8 @@
-'use client';
 import { createClient } from '@/prismicio';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { FaCalendarAlt } from 'react-icons/fa';
 import Link from 'next/link';
-import { useSearchParams, usePathname } from 'next/navigation';
-
+export const dynamic = 'force-dynamic';
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export default async function BlogIndex(props: { searchParams: SearchParams }) {
@@ -20,7 +18,7 @@ export default async function BlogIndex(props: { searchParams: SearchParams }) {
   const pageString = Array.isArray(pageParam) ? pageParam[0] : pageParam;
   const pageNumber = pageString ? Number(pageString) : 1;
 
-  const posts = await client.getAllByType('blog_post', {
+  const posts = await client.getByType('blog_post', {
     orderings: [{ field: 'my.blog_post.publication_date', direction: 'desc' }],
     pageSize: 12,
   });
@@ -32,7 +30,7 @@ export default async function BlogIndex(props: { searchParams: SearchParams }) {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => (
+        {posts.results.map((post) => (
           <article
             key={post.id}
             className="border-none rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
@@ -61,7 +59,7 @@ export default async function BlogIndex(props: { searchParams: SearchParams }) {
               <h2 className="text-2xl font-semibold mb-2">
                 <PrismicNextLink
                   document={post}
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-[#ff7f00] transition-colors"
                 >
                   {post.data.title}
                 </PrismicNextLink>
