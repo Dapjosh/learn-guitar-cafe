@@ -1,3 +1,4 @@
+'use client';
 import { createClient } from '@/prismicio';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { FaCalendarAlt } from 'react-icons/fa';
