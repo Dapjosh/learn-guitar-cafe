@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
 @import "tailwindcss";
+
 @plugin "@tailwindcss/typography";
 
 
@@ -8,7 +9,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --list-image: "♠";
 }
+
+
 
 @layer components {
   .prose pre {

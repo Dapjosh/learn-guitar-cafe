@@ -163,6 +163,78 @@ export type BlogPostDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Course documents
+ */
+interface CourseDocumentData {
+  /**
+   * Title field in *Course*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Course Cover field in *Course*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.course_cover
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  course_cover: prismic.ImageField<never>;
+
+  /**
+   * Description field in *Course*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Course Category field in *Course*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.course_category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  course_category: prismic.SelectField<"Free" | "Paid">;
+
+  /**
+   * Link field in *Course*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: course.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Course document from Prismic
+ *
+ * - **API ID**: `course`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CourseDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<CourseDocumentData>, "course", Lang>;
+
+/**
  * Item in *Settings → Navigation*
  */
 export interface SettingsDocumentDataNavigationItem {
@@ -441,7 +513,10 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = BlogPostDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | BlogPostDocument
+  | CourseDocument
+  | SettingsDocument;
 
 /**
  * Default variation for CodeBlock Slice
@@ -626,6 +701,8 @@ declare module "@prismicio/client" {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
+      CourseDocument,
+      CourseDocumentData,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
