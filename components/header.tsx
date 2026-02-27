@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { createClient } from '@/prismicio';
 import { PrismicNextLink } from '@prismicio/next';
+import MobileNav from './mobile-nav';
 
 export default async function Header() {
   const client = createClient();
   const settings = await client.getSingle('settings').catch(() => null);
   return (
-    <header className="flex items-center justify-between px-8 py-6 bg-white border-b border-gray-100">
+    <header className="relative flex items-center justify-between px-8 py-6 bg-white border-b border-gray-100">
       <div className="flex-shrink-0">
         <Link href="/">
           <img
@@ -28,6 +29,7 @@ export default async function Header() {
           </PrismicNextLink>
         ))}
       </nav>
+      <MobileNav items={settings?.data?.navigation || [] } />
     </header>
   );
 }

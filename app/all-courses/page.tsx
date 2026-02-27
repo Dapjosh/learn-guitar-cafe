@@ -15,8 +15,8 @@ export default async function AllCourses() {
   const courses = await client.getAllByType('course');
 
   return (
-    <main className="bg-[#FFF7F5] py-16 px-6">
-      <div className="flex flex-col max-w-7xl mx-auto my-12 px-4 sm:px-6 lg:px-8 py-12 bg-white">
+    <main className="@container/main bg-[#FFF7F5] py-16 px-6">
+      <div className="@container/content flex flex-col max-w-7xl mx-auto my-12 px-4 sm:px-6 lg:px-8 py-12 bg-white">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-extrabold text-[Fugaz_One] leading-10 text-[#0d274a] mb-4">
             LEARN GUITAR CAFE MEMBERSHIP
@@ -26,20 +26,20 @@ export default async function AllCourses() {
           </p>
         </div>
 
-        <div className="text-center flex mb-12 bg-[#fcfaf9] py-16 px-8">
-          <img
+        <div className="text-center flex @sm/main:flex-col flex-row mb-12 bg-[#fcfaf9] py-16 px-8">
+          <img  
             src="/images/learn-guitar-cafe-membership.png"
             alt="Learn Guitar Cafe Membership"
-            className="w-1/2"
+            className="@sm/main:w-full w-1/2 h-auto object-cover"
           />
           <img
             src="/images/learn-guitar-cafe-pro.png"
             alt="Learn Guitar Cafe Membership Pro"
-            className="w-1/2 h-auto object-cover"
+            className="@sm/main:w-full w-1/2 h-auto object-cover"
           />
         </div>
 
-        <div className="mt-10 mb-12 px-10">
+        <div className="@container/content:px-4 mt-10 mb-12 px-10">
           <p className="text-2xl text-gray-700 leading-10 text-left">
             Embark on a guitar learning experience like no other. With a{' '}
             <a
@@ -73,15 +73,15 @@ export default async function AllCourses() {
             practice and find the right information in your development. And NO,
             it won't cost you thousands of dollars…
           </p>
-          <div className="text-center my-10">
-            <button className="text-center mt-6 cursor-pointer px-6 py-3 bg-[#ff7f00] text-white rounded-md w-80 text-nowrap text-lg font-bold hover:bg-[#ff7f00]/90 transition duration-300 inline-flex justify-center items-center gap-2">
+          <div className="text-center my-10 @sm:my-6 @sm:w-full">
+            <button className="text-center mt-6 cursor-pointer px-6 py-3 bg-[#ff7f00] text-white rounded-md text-nowrap text-lg font-bold hover:bg-[#ff7f00]/90 transition duration-300 inline-flex justify-center items-center gap-2">
               <FaGuitar />
               ENROLL TODAY
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 @container/content:grid-cols-1 lg:grid-cols-3 gap-10">
           {courses.map((course) => (
             <article
               key={course.id}
@@ -99,17 +99,14 @@ export default async function AllCourses() {
                 />
               </div>
 
-              {/* Course Content */}
               <div className="p-8 flex flex-col flex-grow">
-                <h2 className="text-2xl font-bold text-[#0d274a] mb-3 group-hover:text-[#ff7f00] transition-colors">
+                <h2 className="text-2xl @sm/content:w-full font-bold text-[#0d274a] mb-3 group-hover:text-[#ff7f00] transition-colors">
                   {course.data.title}
                 </h2>
 
                 <div className="text-gray-500 mb-6 flex-grow prose-sm line-clamp-3">
                   <PrismicRichText field={course.data.description} />
                 </div>
-
-                {/* Call to Action */}
                 <div className="mt-auto">
                   <PrismicNextLink
                     field={course.data.link}
