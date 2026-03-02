@@ -26,16 +26,16 @@ export default async function AllCourses() {
           </p>
         </div>
 
-        <div className="text-center flex @sm/main:flex-col flex-row mb-12 bg-[#fcfaf9] py-16 px-8">
+        <div className="text-center flex sm:flex-row md:flex-row flex-col mb-12 bg-[#fcfaf9] py-16 px-8">
           <img  
             src="/images/learn-guitar-cafe-membership.png"
             alt="Learn Guitar Cafe Membership"
-            className="@sm/main:w-full w-1/2 h-auto object-cover"
+            className="w-full sm:w-1/2 md:w-1/2 h-auto object-cover"
           />
           <img
             src="/images/learn-guitar-cafe-pro.png"
             alt="Learn Guitar Cafe Membership Pro"
-            className="@sm/main:w-full w-1/2 h-auto object-cover"
+            className="w-full sm:w-1/2 md:w-1/2 h-auto object-cover"
           />
         </div>
 
@@ -93,7 +93,7 @@ export default async function AllCourses() {
                 </div>
                 <PrismicNextImage
                   field={course.data.course_cover}
-                  alt=""
+                  alt="Course Cover Image"
                   fill
                   className="object-cover h-full group-hover:scale-105 transition-transform duration-500"
                 />
